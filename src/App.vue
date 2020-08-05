@@ -21,8 +21,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu+Mono:wght@700&display=swap');
 
 :root {
-  --cyan: #DEFFFC;
-  --lavender: #E3E4F6;
+  --cyan: #aaf2ed;
+  --lavender: #c8c9e6;
   --pink: #E7C8DD;
   --d-pink: #DBAFC1;
   --black: #141414;
@@ -69,5 +69,14 @@ button:hover {
 
 button:active {
   background-color: var(--pink);
+}
+
+h1, h2 {
+  display: flex;
+  margin: 1rem 0;
+  padding: .25rem 1rem;
+  border-radius: 5px;
+  background-color: var(--lavender);
+  color: white;
 }
 </style>

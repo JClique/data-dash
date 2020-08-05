@@ -3,6 +3,7 @@
     <li>data-dash</li>
     <li class="nav-link"><router-link to="/">Home</router-link></li>
     <li class="nav-link"><router-link to="/about">About</router-link></li>
+    <li class="nav-link"><a href="https://github.com/JClique/data-dash">GitHub</a></li>
   </ul>
 </template>
 
@@ -19,8 +20,8 @@ ul {
   justify-content: flex-start;
   list-style: none;
   max-width: 800px;
-  top: 0;
   margin: auto;
+  margin-top: 1rem;
   padding: 0;
   text-align: right;
   font-weight: 900;
@@ -28,21 +29,27 @@ ul {
 
 li {
   padding: .5rem 1rem;
-  margin: .5rem;
+  margin: .25rem;
   border-radius: 10px;
   text-align: center;
   transition: .4s;
 }
 
-li.nav-link:hover {
-  background-color: var(--cyan);
+li, a {
+  font-size: 1.4rem;
+  font-weight: 100;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+li.nav-link:hover a {
+  color: var(--pink);
+  transition: .2s;
 }
 
 li:first-child {
   margin-right: auto;
-  font-size: 1.4rem;
-  font-weight: 100;
-  font-family: 'Ubuntu Mono', monospace;
+  border: 3px dashed var(--lavender);
+  border-radius: 0;
 }
 
 </style>

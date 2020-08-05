@@ -12,32 +12,12 @@
 
 <script>
 export default {
-  name: "Bar",
-  props: ["chartData"],
-  data () {
-    return {
-      chartWidth: 0,
-      chartHeight: 470
-    }
-  },
-  created() {
-    window.addEventListener('resize', this.handleResize);
-    this.handleResize();
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize);
-  },
+  name: "BarChart",
+  props: ["chartData", "chartWidth", "chartHeight"],
   methods: {
     barWidth(value) {
       return this.chartWidth / this.dataMax * value;
     },
-    handleResize() {
-      if (window.innerWidth <= 900) {
-        this.chartWidth = window.innerWidth * 0.8;
-      } else {
-        this.chartWidth = 900
-      }
-    }
   },
   computed: {
     dataMax() {
@@ -61,7 +41,13 @@ export default {
   }
 
   rect {
-    fill: var(--d-pink);
+    fill: var(--pink);
+    transition: .6s;
+    transition-property: width;
+  }
+
+  rect:hover {
+    fill: var(--d-pink)
   }
 
 </style>

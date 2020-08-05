@@ -16,11 +16,4 @@ export default {
     margin: 1rem;
     padding: 1rem;
   }
-
-  .about h1 {
-    margin-bottom: 1rem;
-    padding: .25rem;
-    border-radius: 5px;
-    background-color: var(--lavender);
-  }
 </style>
