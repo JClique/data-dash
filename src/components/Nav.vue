@@ -29,7 +29,7 @@ ul {
 li {
   padding: .5rem 1rem;
   margin: .5rem;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   transition: .4s;
 }
@@ -40,7 +40,7 @@ li.nav-link:hover {
 
 li:first-child {
   margin-right: auto;
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 100;
   font-family: 'Ubuntu Mono', monospace;
 }

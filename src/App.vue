@@ -43,10 +43,31 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1000px;
   margin: auto;
   padding: 0;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
 }
 
+button {
+  background-color: var(--cyan);
+  font-size: 1.2rem;
+  font-family: 'Ubuntu Mono', monospace;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  appearance: none;
+  margin: .5rem;
+}
+
+button:hover {
+  outline: 2px dashed var(--d-pink);
+  outline-offset: 2px;
+}
+
+button:active {
+  background-color: var(--pink);
+}
 </style>
