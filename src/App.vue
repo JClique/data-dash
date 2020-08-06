@@ -21,11 +21,30 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu+Mono:wght@700&display=swap');
 
 :root {
-  --cyan: #aaf2ed;
-  --lavender: #c8c9e6;
+  --cyan: #AAF2ED;
+  --lavender: #C8C9E6;
   --pink: #E7C8DD;
   --d-pink: #DBAFC1;
   --black: #141414;
+}
+
+* {  /* firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #C8C9E6 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lavender);
+  border-radius: 5px;
 }
 
 *, body {
@@ -72,11 +91,17 @@ button:active {
 }
 
 h1, h2 {
-  display: flex;
   margin: 1rem 0;
   padding: .25rem 1rem;
   border-radius: 5px;
   background-color: var(--lavender);
+  color: white;
+  text-align: center;
+}
+
+h2 span {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
   color: white;
 }
 </style>

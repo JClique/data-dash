@@ -21,16 +21,15 @@
     </div>
   </div>
 
+  <div class="home" v-if="this.chartData.length > 0">
+    <h2>Clean Line Area</h2>
 
-  <div class="home">
-    <h2 v-if="this.chartData.length > 0">Clean Line Area</h2>
-
-    <div class="box" v-if="this.chartData.length > 0">
+    <div class="box">
       <LineChart :chartData="chartData" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
 
-    <div class="box btn-box" v-if="this.chartData.length > 0">
+    <div class="box btn-box">
       <div class="box-content">
         <p>Generate some randomised data to see chart transitions and animations.</p>
         <button type="button" name="button" @click="randomiseData">
@@ -39,10 +38,32 @@
       </div>
     </div>
 
-    <div class="box" v-if="this.chartData.length > 0">
+    <div class="box">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
   </div>
+
+  <div class="home" v-if="this.chartData.length > 0">
+    <h2>Clean Horizontal Bar <br><span>( with axis )</span></h2>
+
+    <div class="box">
+      <BarChart :chartData="chartData" :chartLines="true" :chartWidth="chartWidth" :chartHeight="chartHeight" />
+    </div>
+
+    <div class="box btn-box">
+      <div class="box-content">
+        <p>Generate some randomised data to see chart transitions and animations.</p>
+        <button type="button" name="button" @click="randomiseData">
+          Shuffle Data
+        </button>
+      </div>
+    </div>
+
+    <div class="box">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+
   </div>
 </template>
 
@@ -69,6 +90,9 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', this.handleResize);
+  },
+  mounted() {
+    this.randomiseData();
   },
   methods: {
     handleResize() {

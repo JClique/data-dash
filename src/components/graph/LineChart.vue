@@ -19,9 +19,7 @@ export default {
         for (var x = 0; x < chartData.length; x++) {
           var perc = chartData[x] / this.dataMax;
           var steps = (this.chartWidth / chartData.length) * 1.1;
-          console.log(steps);
           var point = (steps * (x)).toFixed(2) + "," + (this.chartHeight - (this.chartHeight * perc)).toFixed(2) + " ";
-
           points += point;
         }
       }
