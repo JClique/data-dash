@@ -57,6 +57,9 @@ export default {
       requestAnimationFrame(frame);
     },
   },
+  mounted() {
+    this.animate();
+  },
   watch: {
     chartData() {
       this.animate();

@@ -28,7 +28,7 @@ ul {
 }
 
 li {
-  padding: .5rem 1rem;
+  padding: .5rem;
   margin: .25rem;
   border-radius: 10px;
   text-align: center;
@@ -50,6 +50,7 @@ li:first-child {
   margin-right: auto;
   border: 3px dashed var(--lavender);
   border-radius: 0;
+  white-space: nowrap;
 }
 
 </style>

@@ -1,66 +1,44 @@
 <template>
   <div>
   <div class="home">
-    <h2 v-if="this.chartData.length > 0">Clean Horizontal Bar</h2>
-
     <div class="box" v-if="this.chartData.length > 0">
       <BarChart :chartData="chartData" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
-    <div class="box btn-box">
-      <div class="box-content">
-        <p>Generate some randomised data to see chart transitions and animations.</p>
-        <button type="button" name="button" @click="randomiseData">
-          Shuffle Data
-        </button>
-      </div>
-    </div>
+    <ButtonBox @randomiseData="randomiseData" title="Clean Horizontal Bar"/>
 
     <div class="box" v-if="this.chartData.length > 0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>The first chart in this project was a simple horizontal bar. Each bar consists of an SVG <i>'&lt;rect&gt;'</i> element,
+        and an accompanying <i>'&lt;text&gt;'</i> element confirming the value.</p>
+      <p>This text follows the end of the bar in a smooth animation when data is loaded or changed, and each bar changes on mouseover to improve use experience.
+        The width of the chart spans the max value in the dataset for consistency.</p>
     </div>
   </div>
 
   <div class="home" v-if="this.chartData.length > 0">
-    <h2>Clean Line Area</h2>
-
     <div class="box">
       <LineChart :chartData="chartData" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
-
-    <div class="box btn-box">
-      <div class="box-content">
-        <p>Generate some randomised data to see chart transitions and animations.</p>
-        <button type="button" name="button" @click="randomiseData">
-          Shuffle Data
-        </button>
-      </div>
-    </div>
+    <ButtonBox @randomiseData="randomiseData" title="Clean Line Area" />
 
     <div class="box">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>The second chart in this project is a line-area, using a multi-sided polygon where each value is represented by a point in the shape.</p>
+      <p>To create this we use a Vue JS method to calculate each plots x-axis based on the maximum value of the dataset, and the y-axis based on the length of the dataset.
+        These two values are then stitched together to create a list of plots going from bottom left, up and across our peaks and valleys, then down to the bottom right.</p>
     </div>
   </div>
 
   <div class="home" v-if="this.chartData.length > 0">
-    <h2>Clean Horizontal Bar <br><span>( with axis )</span></h2>
-
     <div class="box">
       <BarChart :chartData="chartData" :chartLines="true" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
-    <div class="box btn-box">
-      <div class="box-content">
-        <p>Generate some randomised data to see chart transitions and animations.</p>
-        <button type="button" name="button" @click="randomiseData">
-          Shuffle Data
-        </button>
-      </div>
-    </div>
+    <ButtonBox @randomiseData="randomiseData" title="Horizontal Bar ( with axis )"/>
 
     <div class="box">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Now that we have two types of graph, it's time to add some axis. These are created using the <i>'&lt;line&gt;'</i> element and our dynamic Chart Heigh and Chart Width variables. </p>
+      <p>As with our previous chart, each bar changes on mouseover and our gridlines rect in a similar manor.</p>
     </div>
   </div>
 
@@ -70,12 +48,14 @@
 <script>
 import BarChart from '@/components/graph/BarChart.vue'
 import LineChart from '@/components/graph/LineChart.vue'
+import ButtonBox from '@/components/ButtonBox.vue'
 
 export default {
   name: 'Home',
   components: {
     BarChart,
-    LineChart
+    LineChart,
+    ButtonBox
   },
   data () {
     return {
@@ -130,17 +110,10 @@ export default {
   border-radius: 10px;
 }
 
-.box.btn-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.box-content {
-  text-align: center;
-}
-
-.box.btn-box p {
+.box p {
   padding: 1rem;
+  text-align: justify;
 }
+
+
 </style>

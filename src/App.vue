@@ -21,7 +21,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu+Mono:wght@700&display=swap');
 
 :root {
-  --cyan: #AAF2ED;
+  --cyan: #DEFAF8;
   --lavender: #C8C9E6;
   --pink: #E7C8DD;
   --d-pink: #DBAFC1;
@@ -62,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1000px;
   margin: auto;
   padding: 0;
+  padding-bottom: 3rem;
   overflow-x: hidden;
 }
 
@@ -69,28 +70,8 @@ a {
   text-decoration: none;
 }
 
-button {
-  background-color: var(--cyan);
-  font-size: 1.2rem;
-  font-family: 'Ubuntu Mono', monospace;
-  padding: .5rem 1rem;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  appearance: none;
-  margin: .5rem;
-}
-
-button:hover {
-  outline: 2px dashed var(--d-pink);
-  outline-offset: 2px;
-}
-
-button:active {
-  background-color: var(--pink);
-}
-
 h1, h2 {
+  display: block;
   margin: 1rem 0;
   padding: .25rem 1rem;
   border-radius: 5px;
@@ -99,9 +80,4 @@ h1, h2 {
   text-align: center;
 }
 
-h2 span {
-  font-family: 'Ubuntu Mono', monospace;
-  font-size: 0.9rem;
-  color: white;
-}
 </style>

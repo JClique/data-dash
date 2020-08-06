@@ -23,8 +23,9 @@ export default {
           points += point;
         }
       }
-      points += "100, 100000";
+      points += this.chartWidth + ", " + this.chartHeight;
       return points
+
     }
   },
   computed: {
