@@ -7,7 +7,7 @@
         <small> - Click for - </small>
           Random Data
       </button>
-      <p>Generate randomised data to see chart transitions and animations.</p>
+      <p class="data">{{ chartData }}</p>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script>
 export default {
   name: "BarChart",
-  props: ["title"],
+  props: ["title", "chartData"],
 }
 </script>
 
@@ -25,11 +25,6 @@ export default {
   background-color: transparent;
   padding: 0;
   margin: 0 1rem;
-}
-
-.box.btn-box p {
-  padding: 1rem;
-  font-size: .75rem;
 }
 
 .box-content {
@@ -87,4 +82,11 @@ button small {
 button:active small {
   color: white;
 }
+
+p.data {
+  padding: 1rem 0;
+  margin: 0;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
 </style>

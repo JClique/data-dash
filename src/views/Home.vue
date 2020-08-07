@@ -5,13 +5,13 @@
       <BarChart :chartData="chartData" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
-    <ButtonBox @randomiseData="randomiseData" title="Clean Horizontal Bar"/>
+    <ButtonBox @randomiseData="randomiseData" title="Clean Horizontal Bar" :chartData="chartData"/>
 
     <div class="box" v-if="this.chartData.length > 0">
       <p>The first chart in this project was a simple horizontal bar. Each bar consists of an SVG <i>'&lt;rect&gt;'</i> element,
         and an accompanying <i>'&lt;text&gt;'</i> element confirming the value.</p>
-      <p>This text follows the end of the bar in a smooth animation when data is loaded or changed, and each bar changes on mouseover to improve use experience.
-        The width of the chart spans the max value in the dataset for consistency.</p>
+      <p>The width of each bar is calculated as a percentage of the maximum value in the dataset, which is used as the 100% point.
+        This percentage is applied to the width of the chart, which is also a variable, to calculate to length of the bar. </p>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
       <LineChart :chartData="chartData" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
-    <ButtonBox @randomiseData="randomiseData" title="Clean Line Area" />
+    <ButtonBox @randomiseData="randomiseData" title="Clean Line Area" :chartData="chartData"/>
 
     <div class="box">
       <p>The second chart in this project is a line-area, using a multi-sided polygon where each value is represented by a point in the shape.</p>
@@ -31,14 +31,17 @@
 
   <div class="home" v-if="this.chartData.length > 0">
     <div class="box">
-      <BarChart :chartData="chartData" :chartLines="true" :chartWidth="chartWidth" :chartHeight="chartHeight" />
+      <BarChart :chartData="chartData" :chartLines="chartLines" :chartWidth="chartWidth" :chartHeight="chartHeight" />
     </div>
 
-    <ButtonBox @randomiseData="randomiseData" title="Horizontal Bar ( with axis )"/>
+    <ButtonBox @randomiseData="randomiseData" title="Horizontal Bar ( with axis )" :chartData="chartData"/>
 
     <div class="box">
-      <p>Now that we have two types of graph, it's time to add some axis. These are created using the <i>'&lt;line&gt;'</i> element and our dynamic Chart Heigh and Chart Width variables. </p>
-      <p>As with our previous chart, each bar changes on mouseover and our gridlines rect in a similar manor.</p>
+      <p>Axis and gridlines are created using the <i>'&lt;line&gt;'</i> element and our dynamic Chart Height and Chart Width variables.</p>
+      <p>By re-using the same chart component from above, we can provide these gridlines and axis as an optional extra.</p>
+      <button type="button" name="button" @click="toggleChartLines">
+        Toggle Axis
+      </button>
     </div>
   </div>
 
@@ -61,7 +64,8 @@ export default {
     return {
       chartData: [],
       chartWidth: 0,
-      chartHeight: 470
+      chartHeight: 470,
+      chartLines: true,
     }
   },
   created() {
@@ -89,6 +93,9 @@ export default {
         this.chartData.push(Math.floor(Math.random() * 100))
         length -= 1
       }
+    },
+    toggleChartLines() {
+      this.chartLines = !this.chartLines
     }
   }
 }
@@ -115,5 +122,24 @@ export default {
   text-align: justify;
 }
 
+.box button {
+  background-color: white;
+  padding: .5rem 1rem;
+  outline: 2px dashed var(--lavender);
+  outline-offset: 2px;
+  border: none;
+  appearance: none;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1rem;
+  float: right;
+}
+
+.box button:hover {
+  background-color: var(--lavender);
+}
+
+.box button:active {
+  background-color: var(--cyan);
+}
 
 </style>

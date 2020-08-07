@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="line">
-
     <svg :width="chartWidth" :height="chartHeight">
       <polygon
          :points="lineChartData(chartData)"/>
@@ -25,14 +24,13 @@ export default {
       }
       points += this.chartWidth + ", " + this.chartHeight;
       return points
-
-    }
+    },
   },
   computed: {
     dataMax() {
       return Math.max(...this.chartData);
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -48,6 +46,20 @@ export default {
     stroke: var(--d-pink);
     stroke-width: 3;
     transition: .6s;
+    animation: grow-polygon 1s;
   }
+
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 
 </style>

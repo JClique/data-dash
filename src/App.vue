@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Nav />
-    <router-view/>
+    <transition name="router">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -63,7 +65,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: auto;
   padding: 0;
   padding-bottom: 3rem;
-  overflow-x: hidden;
 }
 
 a {
@@ -78,6 +79,24 @@ h1, h2 {
   background-color: var(--lavender);
   color: white;
   text-align: center;
+}
+
+.router-enter-active, .router-leave-active {
+  transition: opacity .5s ease-in-out, transform .5s ease;
+}
+
+.router-enter-active {
+  transition-delay: .5s;
+}
+
+.router-enter, .router-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.router-enter-to, .router-leave {
+  opacity: 1;
+  transform: translateX(0px);
 }
 
 </style>

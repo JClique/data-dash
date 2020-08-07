@@ -74,10 +74,10 @@ export default {
     }
   },
   filters: {
-  round(number) {
-    return Math.round(number);
+    round(number) {
+      return Math.round(number);
+    },
   },
-},
 }
 </script>
 
